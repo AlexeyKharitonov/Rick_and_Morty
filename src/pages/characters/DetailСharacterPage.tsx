@@ -6,9 +6,11 @@ import { ICharacters } from "../../types/Types";
 
 export const DetailСharacterPage = () => {
   const { id } = useParams();
-  const [data, setData] = useState<ICharacters>(null);
+  const [data, setData] = useState<ICharacters | null>(null);
 
-  api.characters.getById(Number(id)).then((resp) => setData(resp));
+  api.characters.getById(Number(id)).then((resp) => {
+    if (resp) setData(resp);
+  });
 
   console.log("####: ", data);
 

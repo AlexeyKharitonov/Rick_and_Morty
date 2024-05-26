@@ -1,3 +1,5 @@
+import { IEpisods } from "../../types/Types";
+
 const episods = [
   {
     id: 1,
@@ -141,14 +143,14 @@ const episods = [
   },
 ];
 
-const fetchAll = () =>
+const fetchAll = (): Promise<IEpisods[] | undefined> =>
   new Promise((resole) => {
     setTimeout(() => {
       resole(episods);
     }, 1000);
   });
 
-const getById = (id: number) =>
+const getById = (id: number): Promise<IEpisods | undefined> =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(episods.find((episode) => episode.id === id));

@@ -7,11 +7,13 @@ import { ILocation } from "../../types/Types";
 export const DetailLocationPage = () => {
   const { id } = useParams();
 
-  const [data, setData] = useState<ILocation>({});
+  const [data, setData] = useState<ILocation | null>(null);
 
-  api.location.getById(Number(id)).then((resp) => setData(resp));
+  api.location.getById(Number(id)).then((resp) => {
+    if (resp) setData(resp);
+  });
 
-  if (!Object.keys(data).length)
+  if (!data)
     return (
       <h1 className="flex items-center min-h-screen justify-center">
         Loading...

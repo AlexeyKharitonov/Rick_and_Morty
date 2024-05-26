@@ -1,3 +1,5 @@
+import { ILocation } from "../../types/Types";
+
 const location = [
   {
     id: 1,
@@ -141,14 +143,14 @@ const location = [
   },
 ];
 
-const fetchAll = () =>
+const fetchAll = (): Promise<ILocation[] | undefined> =>
   new Promise((resole) => {
     setTimeout(() => {
       resole(location);
     }, 1000);
   });
 
-const getById = (id: number) =>
+const getById = (id: number): Promise<ILocation | undefined> =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(location.find((item) => item.id === id));

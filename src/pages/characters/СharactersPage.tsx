@@ -7,7 +7,9 @@ export const СharactersPage = () => {
   const [data, setData] = useState<ICharacters[]>([]);
 
   useEffect(() => {
-    api.characters.fetchAll().then((resp) => setData(resp));
+    api.characters.fetchAll().then((resp) => {
+      if (resp) setData(resp);
+    });
   }, []);
 
   if (!data.length)

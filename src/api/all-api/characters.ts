@@ -1,3 +1,5 @@
+import { ICharacters } from "../../types/Types";
+
 const characters = [
   {
     id: 1,
@@ -201,14 +203,14 @@ const characters = [
   },
 ];
 
-const fetchAll = () =>
+const fetchAll = (): Promise<ICharacters[] | undefined> =>
   new Promise((resole) => {
     setTimeout(() => {
       resole(characters);
     }, 1000);
   });
 
-const getById = (id: number) =>
+const getById = (id: number): Promise<ICharacters | undefined> =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(characters.find((character) => character.id === id));
