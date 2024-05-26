@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom";
 import api from "../../api";
 import { useState } from "react";
 import BackButton from "../../conponents/BackButton";
-import { IEpisods } from "../../types/Types";
+import { ILocation } from "../../types/Types";
 
-export const DetailEpisodePage = () => {
+export const DetailLocationPage = () => {
   const { id } = useParams();
 
-  const [data, setData] = useState<IEpisods>({});
+  const [data, setData] = useState<ILocation>({});
 
-  api.episods.getById(Number(id)).then((resp) => setData(resp));
+  api.location.getById(Number(id)).then((resp) => setData(resp));
 
   if (!Object.keys(data).length)
     return (
@@ -24,11 +24,11 @@ export const DetailEpisodePage = () => {
       <div className="text-4xl mb-8 text-red-700 font-extrabold">
         {data.name}
       </div>
-      <div className="text-4xl mb-4 text-green-600 font-extrabold">
-        Номер эпизода: {data.episode}
+      <div className="text-3xl mb-4 text-green-600 font-extrabold">
+        Измерение: {data.dimension}
       </div>
-      <div className="text-4xl mb-4 text-green-600 font-extrabold">
-        Дата выхода: {data.air_date}
+      <div className="text-3xl mb-4 text-green-600 font-extrabold">
+        Тип: {data.type}
       </div>
     </div>
   );

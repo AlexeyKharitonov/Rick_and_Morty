@@ -11,17 +11,7 @@ function App() {
       <div className="absolute inset-0 bg-purple-400 bg-opacity-60 pointer-events-none rounded-lg"></div>
       <div className="relative z-10">
         <Navigation />
-        <div className="relative z-20">
-          {/* <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/category">
-              <Route index element={<Category />} />
-              <Route path="/category/:id" element={<Detail />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes> */}
-          {elements}
-        </div>
+        <div className="relative z-20">{elements}</div>
       </div>
     </div>
   );

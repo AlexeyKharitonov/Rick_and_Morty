@@ -148,6 +148,14 @@ const fetchAll = () =>
     }, 1000);
   });
 
+const getById = (id: number) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(location.find((item) => item.id === id));
+    }, 1000);
+  });
+
 export default {
   fetchAll,
+  getById,
 };

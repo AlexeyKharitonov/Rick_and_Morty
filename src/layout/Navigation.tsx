@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
 const Navigation = () => {
   const NavStyles = (isActive: boolean) =>
@@ -12,15 +13,15 @@ const Navigation = () => {
         <ul className="flex space-x-12">
           <li className="text-3xl font-extrabold">
             <NavLink className={({ isActive }) => NavStyles(isActive)} to="/">
-              Home
+              <FaHome size={36} />
             </NavLink>
           </li>
           <li className="text-3xl text-green-700 font-extrabold hover:text-green-900 focus:text-green-900">
             <NavLink
               className={({ isActive }) => NavStyles(isActive)}
-              to="/heroes"
+              to="/characters"
             >
-              Heroes
+              characters
             </NavLink>
           </li>
           <li className="text-3xl text-green-700 font-extrabold">

@@ -1,4 +1,4 @@
-interface ICharacters {
+export interface ICharacters {
   id: number;
   [key: string]: string | number;
 }
@@ -8,7 +8,7 @@ export interface IEpisods {
   [key: string]: string | number;
 }
 
-interface ILocation {
+export interface ILocation {
   id: number;
   [key: string]: string | number;
 }

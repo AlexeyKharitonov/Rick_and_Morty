@@ -208,6 +208,14 @@ const fetchAll = () =>
     }, 1000);
   });
 
+const getById = (id: number) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(characters.find((character) => character.id === id));
+    }, 1000);
+  });
+
 export default {
   fetchAll,
+  getById,
 };
