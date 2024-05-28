@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import api from "../../api";
 import { useState } from "react";
-import BackButton from "../../conponents/BackButton";
+import BackButton from "../../components/BackButton";
 import { ICharacters } from "../../types/Types";
 
 export const DetailСharacterPage = () => {
@@ -11,8 +11,6 @@ export const DetailСharacterPage = () => {
   api.characters.getById(Number(id)).then((resp) => {
     if (resp) setData(resp);
   });
-
-  console.log("####: ", data);
 
   if (!data)
     return (

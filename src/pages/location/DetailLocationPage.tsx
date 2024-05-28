@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import api from "../../api";
 import { useState } from "react";
-import BackButton from "../../conponents/BackButton";
+import BackButton from "../../components/BackButton";
 import { ILocation } from "../../types/Types";
 
 export const DetailLocationPage = () => {

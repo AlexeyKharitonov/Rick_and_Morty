@@ -1,3 +1,6 @@
+export type TypeCategory = ICharacters[] | ILocation[] | IEpisods[];
+export type TypeCategoryElem = ICharacters | ILocation | IEpisods;
+
 export interface ICharacters {
   id: number;
   name: string;
@@ -29,4 +32,9 @@ export interface IData {
   characters: ICharacters[];
   episods: IEpisods[];
   location: ILocation[];
+}
+
+export interface IUseSortedDataProps {
+  data: TypeCategory;
+  order: string;
 }
