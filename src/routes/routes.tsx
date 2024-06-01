@@ -1,38 +1,20 @@
-import { DetailEpisodePage, EpisodesPage } from "../pages/episodes";
 import { HomePage } from "../pages/home";
-import { DetailLocationPage, LocationPage } from "../pages/location";
-import { СharactersPage, DetailСharacterPage } from "../pages/characters";
 import { NotFoundPage } from "../pages/not-found";
+import { СategoryPage } from "../pages/category";
+import { SingleCategoryPage } from "../pages/single-category";
 
 const routes = () => [
   {
     path: "/",
     element: <HomePage />,
   },
-
   {
-    path: "/episodes",
-    element: <EpisodesPage />,
+    path: "/:category",
+    element: <СategoryPage />,
   },
   {
-    path: "/episodes/:id",
-    element: <DetailEpisodePage />,
-  },
-  {
-    path: "/locations",
-    element: <LocationPage />,
-  },
-  {
-    path: "/location/:id",
-    element: <DetailLocationPage />,
-  },
-  {
-    path: "/characters",
-    element: <СharactersPage />,
-  },
-  {
-    path: "/characters/:id",
-    element: <DetailСharacterPage />,
+    path: "/:category/:id",
+    element: <SingleCategoryPage />,
   },
   {
     path: "*",

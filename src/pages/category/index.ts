@@ -1,0 +1,1 @@
+export { СategoryPage } from "./СategoryPage";

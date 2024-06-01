@@ -1,34 +1,20 @@
-// import { useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { ICharacters, TypeCategory } from "../types/Types";
+import { ICharacters, IEpisods, ILocation } from "../types/Types";
 
-export const useSortedData = (initionalData: ICharacters[]) => {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  const [sortedData, setSortedData] = useState(initionalData);
+type SortByEntity = ICharacters[] | ILocation[] | IEpisods[];
 
-  useEffect(() => {
-    setSortedData(initionalData);
-  }, [initionalData]);
+export const useSortData = () => {
+  const sortedData = (data: SortByEntity, sortType: string) => {
+    const newData = [...data] || [];
+    newData.sort((a, b) => {
+      if (sortType === "asc") {
+        return new Date(a.created).getTime() - new Date(b.created).getTime();
+      } else {
+        return new Date(b.created).getTime() - new Date(a.created).getTime();
+      }
+    });
 
-  const handleSort = (order: string) => {
-    let newData = [...sortedData];
-
-    if (order === "asc") {
-      newData.sort(
-        (a, b) => new Date(a.created).getTime() - new Date(b.created).getTime()
-      );
-
-      console.log("####: ", newData);
-      setSortedData(newData);
-    } else if (order === "desc") {
-      newData.sort(
-        (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime()
-      );
-      setSortedData(newData);
-    } else {
-      setSortedData(initionalData);
-    }
+    return newData;
   };
 
-  return { sortedData, handleSort, setSortedData };
+  return { sortedData };
 };
