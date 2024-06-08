@@ -5,6 +5,7 @@ import { useSortData } from "../../hooks/useSortData";
 import { options } from "../../utils/Options";
 import { TypeCategory } from "../../types/Types";
 import CustomSelect from "../../components/CustomSelect";
+import { NotFoundPage } from "../not-found";
 
 export const СategoryPage = () => {
   const [data, setData] = useState<TypeCategory>([]);
@@ -15,6 +16,7 @@ export const СategoryPage = () => {
   type CategoryType = "characters" | "episods" | "location";
 
   const { category } = useParams<{ category: CategoryType }>();
+  const validCategories: CategoryType[] = ["characters", "episods", "location"];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +52,9 @@ export const СategoryPage = () => {
   }: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchParams({ sort: value });
   };
+
+  if (!validCategories.includes(category as CategoryType))
+    return <NotFoundPage />;
 
   if (dataError) {
     return (
