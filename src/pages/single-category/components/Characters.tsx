@@ -1,8 +1,6 @@
 import { ICharacters } from "../../../types/Types";
 
 const SingleCharacter = ({ data }: { data: ICharacters }) => {
-  console.log("####: data", data);
-
   return (
     <div className="flex items-center">
       <img
