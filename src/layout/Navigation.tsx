@@ -21,13 +21,13 @@ const Navigation = () => {
               className={({ isActive }) => NavStyles(isActive)}
               to="/characters"
             >
-              characters
+              Characters
             </NavLink>
           </li>
           <li className="text-3xl text-green-700 font-extrabold">
             <NavLink
               className={({ isActive }) => NavStyles(isActive)}
-              to="/episodes"
+              to="/episods"
             >
               Episodes
             </NavLink>
@@ -35,7 +35,7 @@ const Navigation = () => {
           <li className="text-3xl text-green-700 font-extrabold">
             <NavLink
               className={({ isActive }) => NavStyles(isActive)}
-              to="/locations"
+              to="/location"
             >
               Locations
             </NavLink>

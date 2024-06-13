@@ -38,3 +38,8 @@ export interface IUseSortedDataProps {
   data: TypeCategory;
   order: string;
 }
+
+export interface IOptions {
+  value: string;
+  label: string;
+}
